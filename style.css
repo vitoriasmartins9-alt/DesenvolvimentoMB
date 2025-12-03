@@ -1,0 +1,201 @@
+:root {
+    --border: 0.1rem solid rgb(80, 12, 136);
+    font-size: 10px;
+}
+
+
+
+* {
+    margin: 0%;
+    padding: 0%;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: 0.2s linear;
+    font-family: "Merriweather", serif;
+
+}
+
+body {
+    background-color:  #000000;
+
+}
+
+section {
+    padding: 3rem 2rem;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+    
+.header {
+    background-color: #000000;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    z-index: 200;
+    border-bottom: var(--border);
+}
+
+.header section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+
+}
+
+.navtecno {
+    display: flex;
+    gap: 2rem;
+}
+
+.navtecno a {
+    margin: 0.1rem;
+    font-size: 1.6rem;
+    color: #fff;
+}
+
+.navtecno a:hover {
+    color: rgb(80, 12, 136);
+    font-size: 2rem;
+    
+}
+
+.navtecno a {
+    transition-property: all;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+    transition: all 0.2s linear 0s;
+    
+
+}
+
+.image-container {
+  position: relative; 
+  display: inline-block; 
+  
+}
+
+.image-container img {
+  width: 1520px; 
+  height: 800px;
+  display: block; 
+}
+
+.part1 h1 {
+    font-size: 50px;
+    margin-top: 20%;
+    margin-bottom: 2%;
+    text-align: center;
+    font-family: "Merriweather", serif;
+    color: #fff;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    background:rgba(80, 12, 136, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+
+.pg {
+    width: 200px;
+    height: 500px;
+    background: rgb(80, 12, 136);
+    margin: 10px;
+    border-radius: 50px;
+    overflow: hidden;
+
+ 
+}
+
+.pg:hover {
+    width: 400px;
+    transition: 0.7s;
+}
+
+.pg p{
+    color: #fff;
+    width: 80%;
+    top: 100%;
+    left: 50%;
+    opacity: 0;
+    margin-top: 25%;
+    margin-left: 10%;
+    font-size: 20px;
+    
+}
+
+.pg:hover p{
+    opacity: 1;
+    transition: 5s;
+    
+}
+
+.ST {
+    color: #fff;
+    font-size: 50px;
+    margin-top: 20%;
+    margin-bottom: 5%;
+    text-align: center;
+    font-family: "Merriweather", serif;
+}
+
+
+.lista {
+    display: flex;
+    gap: 2em;
+}
+
+.it {
+    width: 401px;
+    height: 501px;
+    position: relative;
+    transition: 1s;
+}
+
+.it img {
+    width: 400px;
+    height: 500px;
+    border-radius: 5%;
+    overflow: hidden;
+    filter: blur(0px);
+    
+}
+
+.it img:hover {
+    filter: blur(0px);
+}
+
+.it p {
+    color: #ffffff;
+    font-size: 20px;
+    width: 80%;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 1s;
+    opacity: 0;
+}
+
+.it:hover {
+    transform: scale(1.05);
+
+    img {
+        filter: blur(5px) !important;
+    }
+}
+
+.it:hover p {
+    opacity: 1;
+    top: 40%;
+}
+
