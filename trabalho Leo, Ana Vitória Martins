@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@600;700;800&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#0b1326",
+                    "surface-tint": "#adc6ff",
+                    "error-container": "#93000a",
+                    "primary-container": "#4d8eff",
+                    "surface-container-highest": "#2d3449",
+                    "outline": "#8c909f",
+                    "on-error": "#690005",
+                    "primary": "#adc6ff",
+                    "primary-fixed": "#d8e2ff",
+                    "inverse-surface": "#dae2fd",
+                    "on-secondary": "#3c0091",
+                    "tertiary-fixed": "#6ffbbe",
+                    "error": "#ffb4ab",
+                    "surface-dim": "#0b1326",
+                    "on-secondary-fixed": "#23005c",
+                    "on-tertiary": "#003824",
+                    "on-tertiary-fixed": "#002113",
+                    "secondary-fixed": "#e9ddff",
+                    "on-tertiary-container": "#00311f",
+                    "on-primary": "#002e6a",
+                    "on-surface": "#dae2fd",
+                    "secondary-container": "#571bc1",
+                    "background": "#0b1326",
+                    "surface-container": "#171f33",
+                    "surface-container-low": "#131b2e",
+                    "primary-fixed-dim": "#adc6ff",
+                    "on-secondary-container": "#c4abff",
+                    "on-background": "#dae2fd",
+                    "outline-variant": "#424754",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#004395",
+                    "on-tertiary-fixed-variant": "#005236",
+                    "surface-variant": "#2d3449",
+                    "inverse-primary": "#005ac2",
+                    "surface-container-high": "#222a3d",
+                    "surface-bright": "#31394d",
+                    "on-surface-variant": "#c2c6d6",
+                    "tertiary-fixed-dim": "#4edea3",
+                    "inverse-on-surface": "#283044",
+                    "tertiary": "#4edea3",
+                    "secondary-fixed-dim": "#d0bcff",
+                    "on-secondary-fixed-variant": "#5516be",
+                    "on-primary-container": "#00285d",
+                    "tertiary-container": "#00a572",
+                    "on-primary-fixed": "#001a42",
+                    "secondary": "#d0bcff",
+                    "surface-container-lowest": "#060e20"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "base": "8px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "section-gap": "80px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Geist"],
+                    "headline-xl": ["Geist"],
+                    "label-caps": ["JetBrains Mono"],
+                    "headline-lg": ["Geist"],
+                    "body-md": ["Inter"],
+                    "code-sm": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "code-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(140, 144, 159, 0.2);
+        }
+        .glass-card:hover {
+            border-color: #adc6ff;
+            box-shadow: 0 0 20px rgba(173, 198, 255, 0.1);
+        }
+        .code-container {
+            background: #060e20;
+            border-radius: 0.5rem;
+            border: 1px solid #424754;
+        }
+        .box-model-node {
+            transition: all 0.3s ease;
+        }
+        .box-model-node:hover {
+            transform: scale(1.02);
+            filter: brightness(1.2);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant">
+<div class="max-w-container-max mx-auto px-gutter flex justify-between items-center h-20">
+<div class="flex items-center gap-8">
+<span class="font-headline-lg text-headline-lg font-bold text-primary">DevAcademy</span>
+<div class="hidden md:flex gap-6">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="#">HTML</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">CSS</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">JavaScript</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Resources</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-all">dark_mode</span>
+<button class="bg-gradient-to-r from-primary to-secondary text-on-primary font-bold px-6 py-2 rounded-full transition-transform active:scale-95 shadow-lg">Sign Up</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="pt-40 pb-20 px-gutter max-w-container-max mx-auto overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="space-y-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-container/20 border border-primary/30 text-primary">
+<span class="font-label-caps text-label-caps">NEW CURRICULUM 2024</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl leading-tight">Master the Foundation of the <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-tertiary">Modern Web</span></h1>
+<p class="text-on-surface-variant text-lg max-w-xl">
+                    Beyond basic tags and styles. Learn semantic architecture, advanced CSS layouts, and cinematic animations to build high-performance user interfaces.
+                </p>
+<div class="flex flex-wrap gap-4">
+<button class="px-8 py-4 bg-primary text-on-primary font-bold rounded-xl transition-transform active:scale-95">Start Learning</button>
+<button class="px-8 py-4 border border-outline-variant hover:border-primary transition-colors font-bold rounded-xl">View Syllabus</button>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-4 bg-gradient-to-r from-primary/20 to-tertiary/20 blur-3xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
+<div class="relative glass-card p-4 rounded-2xl border-outline-variant shadow-2xl">
+<div class="flex items-center gap-2 mb-4 px-2">
+<div class="w-3 h-3 rounded-full bg-error"></div>
+<div class="w-3 h-3 rounded-full bg-tertiary"></div>
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span class="ml-4 font-code-sm text-code-sm text-outline">index.html</span>
+</div>
+<pre class="font-code-sm text-code-sm overflow-x-auto text-on-surface-variant p-4"><span class="text-tertiary">&lt;article</span> <span class="text-primary">class</span>=<span class="text-secondary">"card"</span><span class="text-tertiary">&gt;</span>
+  <span class="text-tertiary">&lt;header&gt;</span>
+    <span class="text-tertiary">&lt;h2&gt;</span>Semantic HTML5<span class="text-tertiary">&lt;/h2&gt;</span>
+  <span class="text-tertiary">&lt;/header&gt;</span>
+  <span class="text-tertiary">&lt;section&gt;</span>
+    <span class="text-tertiary">&lt;p&gt;</span>The structure of meaning.<span class="text-tertiary">&lt;/p&gt;</span>
+  <span class="text-tertiary">&lt;/section&gt;</span>
+<span class="text-tertiary">&lt;/article&gt;</span></pre>
+</div>
+</div>
+</div>
+</header>
+<!-- Semantic HTML Section (Bento Grid) -->
+<section class="py-section-gap px-gutter max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">Architecting Meaning</h2>
+<p class="text-on-surface-variant max-w-md">Semantic HTML5 isn't just about tags—it's about building an accessible and machine-readable web.</p>
+</div>
+<div class="flex items-center gap-2 text-tertiary font-bold cursor-pointer group">
+<span>Browse all tags</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-2 glass-card p-8 rounded-2xl relative overflow-hidden group">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-4xl text-primary mb-4" data-weight="fill">schema</span>
+<h3 class="text-2xl font-bold mb-4">Semantic Hierarchy</h3>
+<p class="text-on-surface-variant mb-6">Learn why using <code class="text-primary">&lt;main&gt;</code>, <code class="text-primary">&lt;nav&gt;</code>, and <code class="text-primary">&lt;aside&gt;</code> is superior to the generic <code class="text-primary">&lt;div&gt;</code> soup for SEO and Accessibility.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container rounded-full text-xs font-code-sm">Accessibility</span>
+<span class="px-3 py-1 bg-surface-container rounded-full text-xs font-code-sm">SEO Ready</span>
+<span class="px-3 py-1 bg-surface-container rounded-full text-xs font-code-sm">Web Standards</span>
+</div>
+</div>
+<div class="absolute right-0 bottom-0 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'wght' 700;">code_blocks</span>
+</div>
+</div>
+<div class="glass-card p-8 rounded-2xl flex flex-col justify-between">
+<div>
+<h3 class="text-xl font-bold mb-2">Metadata Mastery</h3>
+<p class="text-on-surface-variant text-sm">Control how your content appears on social platforms with advanced OpenGraph and Twitter cards.</p>
+</div>
+<img class="w-full h-32 object-cover rounded-lg mt-6 border border-outline-variant" data-alt="A sophisticated digital representation of a social media preview card floating in a futuristic slate-colored void. The card features vibrant blue and purple accents, high-contrast typography, and a clean minimalist aesthetic typical of a premium developer tool interface. The lighting is soft and ethereal, emphasizing depth through subtle shadows and glowing edges." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9N9YFW_M4mpxiGtccLdZOhJZbvulsB_DPuxx9dcUDLDsyFT5sW60bi7sseVntCnodZbCBhO6EyAhCiap1LjKsVWXs4XeawWoXduW_A_yRh5irmAG2tftdXw9u7ylw9R00I7Zwgmwa_B9ubaoM2f-5XC_OFIZKsRZyme2gvhXo5XF_af8GXLGL421O2QO5ehI7RvE_P1OntahX7I5y3KVkYQ5vZAuttGw0rxApE44WuVbK-liUbM3d72tlgcOw32pD8u9gzIl4QAkP"/>
+</div>
+<div class="glass-card p-8 rounded-2xl flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary text-5xl mb-4">accessibility</span>
+<h3 class="text-xl font-bold mb-2">ARIA Roles</h3>
+<p class="text-on-surface-variant text-sm">Bridge the gap between custom UI and assistive technology using semantic attributes.</p>
+</div>
+<div class="md:col-span-2 glass-card p-8 rounded-2xl flex flex-col md:flex-row gap-8 items-center">
+<div class="flex-1">
+<h3 class="text-xl font-bold mb-2">HTML5 Native Elements</h3>
+<p class="text-on-surface-variant mb-4">Mastering the new wave of native components like <code class="text-tertiary">&lt;dialog&gt;</code> and <code class="text-tertiary">&lt;details&gt;</code>.</p>
+<button class="text-primary font-bold hover:underline">Read the docs</button>
+</div>
+<div class="flex-1 grid grid-cols-2 gap-4">
+<div class="p-4 bg-surface-container rounded-xl border border-outline-variant text-center">
+<div class="font-code-sm text-tertiary">&lt;video&gt;</div>
+</div>
+<div class="p-4 bg-surface-container rounded-xl border border-outline-variant text-center">
+<div class="font-code-sm text-tertiary">&lt;canvas&gt;</div>
+</div>
+<div class="p-4 bg-surface-container rounded-xl border border-outline-variant text-center">
+<div class="font-code-sm text-tertiary">&lt;svg&gt;</div>
+</div>
+<div class="p-4 bg-surface-container rounded-xl border border-outline-variant text-center">
+<div class="font-code-sm text-tertiary">&lt;track&gt;</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Visual Box Model Diagram -->
+<section class="py-section-gap bg-surface-container-low overflow-hidden">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-tertiary mb-4">The Box Model Anatomy</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto">Understanding how browsers calculate space is the secret to pixel-perfect layouts.</p>
+</div>
+<div class="relative max-w-2xl mx-auto p-12 glass-card rounded-3xl border-outline-variant">
+<!-- Margin -->
+<div class="box-model-node border-2 border-dashed border-error/50 p-8 rounded-2xl text-center relative group">
+<span class="absolute top-2 left-4 font-label-caps text-error text-[10px]">MARGIN</span>
+<!-- Border -->
+<div class="box-model-node border-4 border-outline p-8 rounded-xl bg-surface-container-highest/40 relative">
+<span class="absolute top-2 left-4 font-label-caps text-outline text-[10px]">BORDER</span>
+<!-- Padding -->
+<div class="box-model-node border-2 border-dashed border-tertiary/50 p-8 rounded-lg relative">
+<span class="absolute top-2 left-4 font-label-caps text-tertiary text-[10px]">PADDING</span>
+<!-- Content -->
+<div class="box-model-node bg-primary text-on-primary p-6 rounded shadow-lg font-bold font-code-sm">
+                                CONTENT
+                            </div>
+</div>
+</div>
+</div>
+<div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="p-4 rounded-xl bg-surface/50 border border-outline-variant">
+<div class="text-error font-bold mb-1">Margin</div>
+<div class="text-xs text-on-surface-variant">Outer spacing between elements</div>
+</div>
+<div class="p-4 rounded-xl bg-surface/50 border border-outline-variant">
+<div class="text-outline font-bold mb-1">Border</div>
+<div class="text-xs text-on-surface-variant">The visible line surrounding padding</div>
+</div>
+<div class="p-4 rounded-xl bg-surface/50 border border-outline-variant">
+<div class="text-tertiary font-bold mb-1">Padding</div>
+<div class="text-xs text-on-surface-variant">Internal space inside the border</div>
+</div>
+<div class="p-4 rounded-xl bg-surface/50 border border-outline-variant">
+<div class="text-primary font-bold mb-1">Content</div>
+<div class="text-xs text-on-surface-variant">The actual text, image, or child</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CSS Modern Layouts Section -->
+<section class="py-section-gap px-gutter max-w-container-max mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-12">Modern Layout Orchestration</h2>
+<div class="space-y-24">
+<!-- Flexbox -->
+<div class="flex flex-col lg:flex-row gap-12 items-center">
+<div class="lg:w-1/2 space-y-6">
+<h3 class="text-3xl font-bold flex items-center gap-4">
+<span class="w-10 h-10 rounded bg-primary-container/20 flex items-center justify-center text-primary material-symbols-outlined">flex_direction</span>
+                        Flexbox
+                    </h3>
+<p class="text-on-surface-variant text-lg">Master the one-dimensional layout system. Learn how to align, justify, and distribute space among items in a container, even when their size is unknown.</p>
+<div class="code-container p-6">
+<pre class="font-code-sm text-code-sm"><span class="text-tertiary">.container</span> {
+  <span class="text-primary">display</span>: <span class="text-secondary">flex</span>;
+  <span class="text-primary">justify-content</span>: <span class="text-secondary">space-between</span>;
+  <span class="text-primary">align-items</span>: <span class="text-secondary">center</span>;
+  <span class="text-primary">gap</span>: <span class="text-secondary">1.5rem</span>;
+}</pre>
+</div>
+</div>
+<div class="lg:w-1/2 w-full glass-card p-8 rounded-3xl grid grid-cols-1 gap-4">
+<div class="flex justify-between items-center bg-surface-container p-4 rounded-xl border border-outline-variant">
+<div class="w-12 h-12 rounded bg-primary"></div>
+<div class="w-12 h-12 rounded bg-tertiary"></div>
+<div class="w-12 h-12 rounded bg-secondary"></div>
+</div>
+<div class="flex flex-col gap-4 bg-surface-container p-4 rounded-xl border border-outline-variant">
+<div class="h-4 w-full bg-outline-variant rounded"></div>
+<div class="h-4 w-3/4 bg-outline-variant rounded"></div>
+</div>
+</div>
+</div>
+<!-- CSS Grid -->
+<div class="flex flex-col lg:flex-row-reverse gap-12 items-center">
+<div class="lg:w-1/2 space-y-6">
+<h3 class="text-3xl font-bold flex items-center gap-4">
+<span class="w-10 h-10 rounded bg-tertiary-container/20 flex items-center justify-center text-tertiary material-symbols-outlined">grid_view</span>
+                        CSS Grid
+                    </h3>
+<p class="text-on-surface-variant text-lg">The most powerful layout system in CSS. Create complex two-dimensional designs with rows and columns without the need for floats or absolute positioning.</p>
+<div class="code-container p-6">
+<pre class="font-code-sm text-code-sm"><span class="text-tertiary">.bento-grid</span> {
+  <span class="text-primary">display</span>: <span class="text-secondary">grid</span>;
+  <span class="text-primary">grid-template-columns</span>: <span class="text-secondary">repeat(3, 1fr)</span>;
+  <span class="text-primary">grid-auto-rows</span>: <span class="text-secondary">minmax(100px, auto)</span>;
+}</pre>
+</div>
+</div>
+<div class="lg:w-1/2 w-full grid grid-cols-3 grid-rows-2 gap-4 h-64">
+<div class="col-span-2 bg-primary/20 border border-primary/50 rounded-xl flex items-center justify-center font-bold">1</div>
+<div class="row-span-2 bg-tertiary/20 border border-tertiary/50 rounded-xl flex items-center justify-center font-bold">2</div>
+<div class="bg-secondary/20 border border-secondary/50 rounded-xl flex items-center justify-center font-bold">3</div>
+<div class="bg-surface-container-highest border border-outline-variant rounded-xl flex items-center justify-center font-bold">4</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Keyframe Animations -->
+<section class="py-section-gap px-gutter max-w-container-max mx-auto">
+<div class="glass-card p-12 rounded-3xl relative overflow-hidden">
+<div class="absolute top-0 right-0 p-8">
+<div class="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-tertiary animate-pulse blur-xl opacity-30"></div>
+</div>
+<div class="max-w-2xl relative z-10">
+<h2 class="text-3xl font-bold mb-6">Cinematic Animations</h2>
+<p class="text-on-surface-variant mb-8 text-lg">Go beyond simple transitions. Master <code>@keyframes</code>, hardware acceleration, and Bezier curves to create fluid, professional-grade interactions.</p>
+<div class="flex flex-wrap gap-4 mb-12">
+<div class="px-6 py-3 rounded-full bg-surface border border-outline-variant flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-code-sm">cubic-bezier</span>
+</div>
+<div class="px-6 py-3 rounded-full bg-surface border border-outline-variant flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-code-sm">transform-3d</span>
+</div>
+<div class="px-6 py-3 rounded-full bg-surface border border-outline-variant flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-code-sm">will-change</span>
+</div>
+</div>
+<button class="flex items-center gap-3 bg-on-surface text-surface font-bold px-8 py-4 rounded-xl group overflow-hidden relative">
+<span class="relative z-10">Launch Interaction Lab</span>
+<span class="material-symbols-outlined relative z-10 group-hover:translate-x-1 transition-transform">bolt</span>
+<div class="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+</button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant w-full py-section-gap">
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-4">
+<span class="font-headline-lg text-headline-lg font-bold text-primary">DevAcademy</span>
+<p class="text-on-surface-variant max-w-sm font-body-md text-body-md">
+                    © 2024 DevAcademy Education. Built for the modern web. Empowering developers with high-end technical training.
+                </p>
+</div>
+<div class="grid grid-cols-2 gap-8 md:justify-items-end">
+<div class="space-y-4">
+<h4 class="font-bold text-primary">Platform</h4>
+<nav class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="#">Terms of Service</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-primary">Connect</h4>
+<nav class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="#">Discord Community</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors font-body-md text-body-md" href="#">GitHub</a>
+</nav>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for box model elements
+        document.querySelectorAll('.box-model-node').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                // Potential for adding more interactive highlight logic
+            });
+        });
+
+        // Navigation scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-xl', 'bg-surface/95');
+            } else {
+                nav.classList.remove('shadow-xl', 'bg-surface/95');
+            }
+        });
+    </script>
+</body></html>
